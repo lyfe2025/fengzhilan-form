@@ -83,7 +83,7 @@
     }
     .option:hover { border-color: #1a1a2e; background: #f9f9fb; }
     .option input { accent-color: #1a1a2e; width: 16px; height: 16px; cursor: pointer; }
-    .option label { cursor: pointer; font-size: 14px; flex: 1; }
+    .option span { cursor: pointer; font-size: 14px; flex: 1; }
 
     .text-input {
       width: 100%; padding: 12px 14px;
@@ -278,12 +278,12 @@
         <div class="question-title">您的预算范围大概是？<span class="required">*</span></div>
         <div class="question-sub">预算是我们评估能否合作的首要条件，请如实填写。</div>
         <div class="options">
-          <label class="option"><input type="radio" name="budget" value="2万以内"><label>2 万以内</label></label>
-          <label class="option"><input type="radio" name="budget" value="2-5万"><label>2 - 5 万</label></label>
-          <label class="option"><input type="radio" name="budget" value="5-10万"><label>5 - 10 万</label></label>
-          <label class="option"><input type="radio" name="budget" value="10-30万"><label>10 - 30 万</label></label>
-          <label class="option"><input type="radio" name="budget" value="30万以上"><label>30 万以上</label></label>
-          <label class="option"><input type="radio" name="budget" value="暂时不确定"><label>暂时不确定</label></label>
+          <label class="option"><input type="radio" name="budget" value="2万以内"><span>2 万以内</span></label>
+          <label class="option"><input type="radio" name="budget" value="2-5万"><span>2 - 5 万</span></label>
+          <label class="option"><input type="radio" name="budget" value="5-10万"><span>5 - 10 万</span></label>
+          <label class="option"><input type="radio" name="budget" value="10-30万"><span>10 - 30 万</span></label>
+          <label class="option"><input type="radio" name="budget" value="30万以上"><span>30 万以上</span></label>
+          <label class="option"><input type="radio" name="budget" value="暂时不确定"><span>暂时不确定</span></label>
         </div>
         <div class="budget-warning" id="budget-warning">
           我们的项目起步价为 <strong>2 万元</strong>，低于此预算的项目暂时无法承接。<br>
@@ -321,11 +321,11 @@
         <div class="question-num">第 4 题</div>
         <div class="question-title">您希望做什么平台？（选填，不确定可跳过）</div>
         <div class="options">
-          <label class="option"><input type="checkbox" name="platform" value="微信小程序"><label>微信小程序</label></label>
-          <label class="option"><input type="checkbox" name="platform" value="iOS/Android App"><label>iOS / Android App</label></label>
-          <label class="option"><input type="checkbox" name="platform" value="PC网站/管理后台"><label>PC 网站 / 管理后台</label></label>
-          <label class="option"><input type="checkbox" name="platform" value="H5移动网页"><label>H5 移动网页</label></label>
-          <label class="option"><input type="checkbox" name="platform" value="不确定，需要建议"><label>不确定，需要您帮我建议</label></label>
+          <label class="option"><input type="checkbox" name="platform" value="微信小程序"><span>微信小程序</span></label>
+          <label class="option"><input type="checkbox" name="platform" value="iOS/Android App"><span>iOS / Android App</span></label>
+          <label class="option"><input type="checkbox" name="platform" value="PC网站/管理后台"><span>PC 网站 / 管理后台</span></label>
+          <label class="option"><input type="checkbox" name="platform" value="H5移动网页"><span>H5 移动网页</span></label>
+          <label class="option"><input type="checkbox" name="platform" value="不确定，需要建议"><span>不确定，需要您帮我建议</span></label>
         </div>
       </div>
 
@@ -334,10 +334,10 @@
         <div class="question-num">第 5 题</div>
         <div class="question-title">期望什么时候上线？<span class="required">*</span></div>
         <div class="options">
-          <label class="option"><input type="radio" name="timeline" value="1个月内"><label>1 个月内</label></label>
-          <label class="option"><input type="radio" name="timeline" value="1-3个月"><label>1 - 3 个月</label></label>
-          <label class="option"><input type="radio" name="timeline" value="3-6个月"><label>3 - 6 个月</label></label>
-          <label class="option"><input type="radio" name="timeline" value="时间灵活"><label>时间灵活，不着急</label></label>
+          <label class="option"><input type="radio" name="timeline" value="1个月内"><span>1 个月内</span></label>
+          <label class="option"><input type="radio" name="timeline" value="1-3个月"><span>1 - 3 个月</span></label>
+          <label class="option"><input type="radio" name="timeline" value="3-6个月"><span>3 - 6 个月</span></label>
+          <label class="option"><input type="radio" name="timeline" value="时间灵活"><span>时间灵活，不着急</span></label>
         </div>
       </div>
 
