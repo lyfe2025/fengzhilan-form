@@ -8,63 +8,51 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
-      background: #f5f6f8;
-      color: #333;
-      min-height: 100vh;
+      background: #f5f6f8; color: #333; min-height: 100vh;
     }
     .header {
-      background: #1a1a2e;
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
+      background: #1a1a2e; color: #fff;
+      padding: 40px 20px; text-align: center;
     }
     .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
     .header p { font-size: 14px; color: #aab; line-height: 1.8; }
-    .container {
-      max-width: 680px;
-      margin: 30px auto;
-      padding: 0 16px 60px;
-    }
+    .container { max-width: 680px; margin: 30px auto; padding: 0 16px 60px; }
+
     .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 28px 24px;
-      margin-bottom: 16px;
+      background: #fff; border-radius: 12px;
+      padding: 28px 24px; margin-bottom: 16px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     .question-num { font-size: 12px; color: #999; margin-bottom: 6px; }
-    .question-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; line-height: 1.5; }
+    .question-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; line-height: 1.5; }
+    .question-sub { font-size: 13px; color: #888; margin-bottom: 16px; line-height: 1.6; }
     .required { color: #e55; margin-left: 4px; }
+
     .options { display: flex; flex-direction: column; gap: 10px; }
     .option {
       display: flex; align-items: center; gap: 10px;
-      padding: 12px 14px;
-      border: 1.5px solid #e8e8e8;
+      padding: 12px 14px; border: 1.5px solid #e8e8e8;
       border-radius: 8px; cursor: pointer; transition: all 0.15s;
     }
     .option:hover { border-color: #1a1a2e; background: #f9f9fb; }
     .option input { accent-color: #1a1a2e; width: 16px; height: 16px; cursor: pointer; }
     .option label { cursor: pointer; font-size: 14px; flex: 1; }
-    .other-input, .text-input {
+
+    .text-input {
       width: 100%; padding: 12px 14px;
       border: 1.5px solid #e8e8e8; border-radius: 8px;
       font-size: 14px; outline: none; transition: border-color 0.15s;
+      font-family: inherit;
     }
-    .other-input { margin-top: 10px; }
-    .other-input:focus, .text-input:focus { border-color: #1a1a2e; }
-    textarea.text-input { resize: vertical; min-height: 80px; }
-    .field-group { display: flex; flex-direction: column; gap: 12px; }
-    .field-label { font-size: 13px; color: #666; margin-bottom: 4px; }
+    .text-input:focus { border-color: #1a1a2e; }
+    textarea.text-input { resize: vertical; min-height: 120px; line-height: 1.7; }
 
-    /* 合作声明 */
-    .notice-box {
-      background: #fff8f0; border: 1.5px solid #f0c080;
-      border-radius: 12px; padding: 20px 22px; margin-bottom: 16px;
+    /* 语音提示 */
+    .voice-tip {
+      margin-top: 10px; padding: 10px 14px;
+      background: #f0f7ff; border-radius: 8px;
+      font-size: 12px; color: #557; line-height: 1.7;
     }
-    .notice-box h3 { font-size: 14px; font-weight: 700; color: #b06000; margin-bottom: 10px; }
-    .notice-box ul { padding-left: 16px; }
-    .notice-box ul li { font-size: 13px; color: #7a4800; line-height: 2; }
-    .notice-box p { font-size: 12px; color: #999; margin-top: 10px; line-height: 1.6; }
 
     /* 预算警示 */
     .budget-warning {
@@ -78,24 +66,19 @@
       font-size: 13px; color: #888; line-height: 1.6;
     }
 
-    /* 报价预估区 */
-    .estimate-box {
-      display: none;
-      background: #f0f4ff; border: 1.5px solid #b0c4f8;
+    /* 合作声明 */
+    .notice-box {
+      background: #fff8f0; border: 1.5px solid #f0c080;
       border-radius: 12px; padding: 20px 22px; margin-bottom: 16px;
     }
-    .estimate-box h3 { font-size: 14px; font-weight: 700; color: #2244aa; margin-bottom: 12px; }
-    .estimate-range { font-size: 26px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; }
-    .estimate-note { font-size: 12px; color: #778; line-height: 1.6; }
-    .estimate-items { margin-top: 12px; }
-    .estimate-item {
-      display: flex; justify-content: space-between;
-      font-size: 13px; color: #445; padding: 4px 0;
-      border-bottom: 1px dashed #dde;
-    }
-    .estimate-item:last-child { border-bottom: none; }
+    .notice-box h3 { font-size: 14px; font-weight: 700; color: #b06000; margin-bottom: 10px; }
+    .notice-box ul { padding-left: 16px; }
+    .notice-box ul li { font-size: 13px; color: #7a4800; line-height: 2; }
+    .notice-box p { font-size: 12px; color: #999; margin-top: 10px; line-height: 1.6; }
 
-    /* 提交 */
+    .field-group { display: flex; flex-direction: column; gap: 12px; }
+    .field-label { font-size: 13px; color: #666; margin-bottom: 4px; }
+
     .submit-btn {
       width: 100%; padding: 16px;
       background: #1a1a2e; color: #fff; border: none;
@@ -139,66 +122,11 @@
       <p>如果您有其他特殊合作想法，欢迎在表单最后补充说明，我们会根据实际情况评估。</p>
     </div>
 
-    <!-- Q1 行业 -->
+    <!-- Q1 预算（放最前，筛选诚意） -->
     <div class="card">
       <div class="question-num">第 1 题</div>
-      <div class="question-title">您的业务属于哪个行业？<span class="required">*</span></div>
-      <div class="options">
-        <label class="option"><input type="radio" name="industry" value="餐饮/食品"><label>餐饮 / 食品</label></label>
-        <label class="option"><input type="radio" name="industry" value="零售/电商"><label>零售 / 电商</label></label>
-        <label class="option"><input type="radio" name="industry" value="教育/培训"><label>教育 / 培训</label></label>
-        <label class="option"><input type="radio" name="industry" value="医疗/健康"><label>医疗 / 健康</label></label>
-        <label class="option"><input type="radio" name="industry" value="房产/装修"><label>房产 / 装修</label></label>
-        <label class="option"><input type="radio" name="industry" value="物流/配送"><label>物流 / 配送</label></label>
-        <label class="option"><input type="radio" name="industry" value="企业服务"><label>企业服务</label></label>
-        <label class="option"><input type="radio" name="industry" value="other_industry"><label>其他</label></label>
-      </div>
-      <input type="text" class="other-input" id="industry-other" placeholder="请填写您的行业" style="display:none">
-    </div>
-
-    <!-- Q2 平台 -->
-    <div class="card">
-      <div class="question-num">第 2 题</div>
-      <div class="question-title">您希望开发什么类型的软件？<span class="required">*</span>（可多选）</div>
-      <div class="options">
-        <label class="option"><input type="checkbox" name="platform" value="微信小程序"><label>微信小程序</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="iOS/Android App"><label>iOS / Android App</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="PC网站/管理后台"><label>PC 网站 / 管理后台</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="H5移动网页"><label>H5 移动网页</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="企业内部系统"><label>企业内部系统</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="不确定，需要建议"><label>不确定，需要建议</label></label>
-      </div>
-    </div>
-
-    <!-- Q3 功能 -->
-    <div class="card">
-      <div class="question-num">第 3 题</div>
-      <div class="question-title">您需要哪些核心功能？<span class="required">*</span>（可多选）</div>
-      <div class="options">
-        <label class="option"><input type="checkbox" name="features" value="在线下单/购买" data-min="3500" data-max="6000"><label>在线下单 / 购买</label></label>
-        <label class="option"><input type="checkbox" name="features" value="预约/服务管理" data-min="2000" data-max="4000"><label>预约 / 服务管理</label></label>
-        <label class="option"><input type="checkbox" name="features" value="会员/积分体系" data-min="2500" data-max="5000"><label>会员 / 积分体系</label></label>
-        <label class="option"><input type="checkbox" name="features" value="内容展示/资讯" data-min="1000" data-max="2000"><label>内容展示 / 资讯</label></label>
-        <label class="option"><input type="checkbox" name="features" value="用户社区/互动" data-min="2000" data-max="4000"><label>用户社区 / 互动</label></label>
-        <label class="option"><input type="checkbox" name="features" value="数据统计/报表" data-min="2000" data-max="5000"><label>数据统计 / 报表</label></label>
-        <label class="option"><input type="checkbox" name="features" value="员工/门店管理" data-min="3000" data-max="6000"><label>员工 / 门店管理</label></label>
-        <label class="option"><input type="checkbox" name="features" value="对接第三方" data-min="1500" data-max="3000"><label>对接第三方（地图 / 支付 / 物流等）</label></label>
-        <label class="option"><input type="checkbox" name="features" value="other_feature" data-min="0" data-max="0"><label>其他</label></label>
-      </div>
-      <input type="text" class="other-input" id="feature-other" placeholder="请描述其他功能需求" style="display:none">
-    </div>
-
-    <!-- Q4 参考 -->
-    <div class="card">
-      <div class="question-num">第 4 题</div>
-      <div class="question-title">有没有您喜欢的参考产品？（选填）</div>
-      <textarea class="text-input" name="reference" placeholder="例如：某个 App 或小程序名称，或简单描述您想要的效果"></textarea>
-    </div>
-
-    <!-- Q5 预算 -->
-    <div class="card">
-      <div class="question-num">第 5 题</div>
       <div class="question-title">您的预算范围大概是？<span class="required">*</span></div>
+      <div class="question-sub">预算是我们评估能否合作的首要条件，请如实填写。</div>
       <div class="options">
         <label class="option"><input type="radio" name="budget" value="2万以内"><label>2 万以内</label></label>
         <label class="option"><input type="radio" name="budget" value="2-5万"><label>2 - 5 万</label></label>
@@ -209,46 +137,70 @@
       </div>
       <div class="budget-warning" id="budget-warning">
         我们的项目起步价为 <strong>2 万元</strong>，低于此预算的项目暂时无法承接。<br>
-        如您预算有限但需求明确，欢迎在下方补充说明，我们会根据实际情况评估是否有合适方案。
+        如您预算有限但需求明确，欢迎在下方补充说明，我们会根据实际情况评估。
       </div>
       <div class="budget-hint" id="budget-hint">
-        填写大概预算范围有助于我们为您匹配合适的方案。如果暂时不确定，也欢迎在下方补充说明。
+        填写大概预算范围有助于我们为您匹配合适的方案，如暂不确定可在最后补充说明。
       </div>
     </div>
 
-    <!-- Q6 时间 -->
+    <!-- Q2 自由描述 -->
     <div class="card">
-      <div class="question-num">第 6 题</div>
+      <div class="question-num">第 2 题</div>
+      <div class="question-title">请用您自己的话，描述您的想法<span class="required">*</span></div>
+      <div class="question-sub">
+        您的业务是什么？遇到了什么问题？希望软件帮您解决什么？<br>
+        不需要懂技术，用日常语言描述即可，越具体越好。
+      </div>
+      <textarea class="text-input" name="description" placeholder="例如：我在做外卖生意，现在靠微信接单很乱，想做一个小程序让顾客自己下单，我能在后台看到订单、安排配送……" required></textarea>
+      <div class="voice-tip">
+        📱 手机用户：点击输入框后，点击键盘上的麦克风图标，即可直接语音输入，无需手打。
+      </div>
+    </div>
+
+    <!-- Q3 参考产品 -->
+    <div class="card">
+      <div class="question-num">第 3 题</div>
+      <div class="question-title">有没有您喜欢的参考产品？（选填）</div>
+      <div class="question-sub">比如某个 App、小程序名称，或某个功能截图，有助于我们更快理解您的期望。</div>
+      <textarea class="text-input" name="reference" placeholder="例如：像美团外卖那样的下单流程，或者参考某某小程序的会员体系……"></textarea>
+    </div>
+
+    <!-- Q4 平台 -->
+    <div class="card">
+      <div class="question-num">第 4 题</div>
+      <div class="question-title">您希望做什么平台？（选填，不确定可跳过）</div>
+      <div class="options">
+        <label class="option"><input type="checkbox" name="platform" value="微信小程序"><label>微信小程序</label></label>
+        <label class="option"><input type="checkbox" name="platform" value="iOS/Android App"><label>iOS / Android App</label></label>
+        <label class="option"><input type="checkbox" name="platform" value="PC网站/管理后台"><label>PC 网站 / 管理后台</label></label>
+        <label class="option"><input type="checkbox" name="platform" value="H5移动网页"><label>H5 移动网页</label></label>
+        <label class="option"><input type="checkbox" name="platform" value="不确定，需要建议"><label>不确定，需要您帮我建议</label></label>
+      </div>
+    </div>
+
+    <!-- Q5 时间 -->
+    <div class="card">
+      <div class="question-num">第 5 题</div>
       <div class="question-title">期望什么时候上线？<span class="required">*</span></div>
       <div class="options">
         <label class="option"><input type="radio" name="timeline" value="1个月内"><label>1 个月内</label></label>
         <label class="option"><input type="radio" name="timeline" value="1-3个月"><label>1 - 3 个月</label></label>
         <label class="option"><input type="radio" name="timeline" value="3-6个月"><label>3 - 6 个月</label></label>
-        <label class="option"><input type="radio" name="timeline" value="时间灵活"><label>时间灵活</label></label>
+        <label class="option"><input type="radio" name="timeline" value="时间灵活"><label>时间灵活，不着急</label></label>
       </div>
     </div>
 
-    <!-- 报价预估（动态显示） -->
-    <div class="estimate-box" id="estimate-box">
-      <h3>根据您的选择，初步费用预估</h3>
-      <div class="estimate-range" id="estimate-range">—</div>
-      <div class="estimate-items" id="estimate-items"></div>
-      <div class="estimate-note">
-        以上为参考区间，实际报价以需求确认后为准。<br>
-        提交后我们会为您出具详细评估方案。
-      </div>
-    </div>
-
-    <!-- 补充说明 -->
+    <!-- Q6 补充 -->
     <div class="card">
-      <div class="question-num">第 7 题</div>
-      <div class="question-title">其他补充说明（选填）</div>
-      <textarea class="text-input" name="remark" placeholder="如有特殊合作模式、其他想法，或任何需要补充的信息，请在此说明"></textarea>
+      <div class="question-num">第 6 题</div>
+      <div class="question-title">其他补充（选填）</div>
+      <textarea class="text-input" name="remark" placeholder="如有特殊合作需求、顾虑，或任何想补充的内容，请在此说明"></textarea>
     </div>
 
     <!-- 联系方式 -->
     <div class="card">
-      <div class="question-num">第 8 题</div>
+      <div class="question-num">第 7 题</div>
       <div class="question-title">您的联系方式<span class="required">*</span></div>
       <div class="field-group">
         <div>
@@ -260,13 +212,13 @@
           <input type="text" class="text-input" name="wechat" placeholder="方便我们添加您" required>
         </div>
         <div>
-          <div class="field-label">手机号</div>
+          <div class="field-label">手机号（选填）</div>
           <input type="tel" class="text-input" name="phone" placeholder="备用联系方式">
         </div>
       </div>
     </div>
 
-    <button type="submit" class="submit-btn" id="submit-btn">提交需求，获取详细评估方案</button>
+    <button type="submit" class="submit-btn" id="submit-btn">提交，获取免费评估方案</button>
     <p class="hint">提交后 1 个工作日内，我们将主动通过微信联系您</p>
 
   </form>
@@ -288,64 +240,6 @@
 </div>
 
 <script>
-  // 基础费用：用户体系 + 基础框架
-  const BASE_MIN = 3000;
-  const BASE_MAX = 6000;
-  const MIN_TOTAL = 20000;
-
-  function updateEstimate() {
-    const checked = [...document.querySelectorAll('input[name="features"]:checked')]
-      .filter(el => el.value !== 'other_feature');
-
-    if (checked.length === 0) {
-      document.getElementById('estimate-box').style.display = 'none';
-      return;
-    }
-
-    let totalMin = BASE_MIN;
-    let totalMax = BASE_MAX;
-    const items = [{ label: '基础框架（用户体系、基础结构）', min: BASE_MIN, max: BASE_MAX }];
-
-    checked.forEach(el => {
-      const min = parseInt(el.dataset.min);
-      const max = parseInt(el.dataset.max);
-      totalMin += min;
-      totalMax += max;
-      items.push({ label: el.value, min, max });
-    });
-
-    // 加项目管理费 12%
-    const pmMin = Math.round(totalMin * 0.12);
-    const pmMax = Math.round(totalMax * 0.12);
-    totalMin += pmMin;
-    totalMax += pmMax;
-    items.push({ label: '项目管理费（约12%）', min: pmMin, max: pmMax });
-
-    // 保底 2 万
-    totalMin = Math.max(totalMin, MIN_TOTAL);
-
-    const fmt = n => (n >= 10000 ? (n / 10000).toFixed(1) + ' 万' : n.toLocaleString() + ' 元');
-
-    document.getElementById('estimate-range').textContent = `${fmt(totalMin)} - ${fmt(totalMax)}`;
-
-    const itemsEl = document.getElementById('estimate-items');
-    itemsEl.innerHTML = items.map(i =>
-      `<div class="estimate-item"><span>${i.label}</span><span>${fmt(i.min)} - ${fmt(i.max)}</span></div>`
-    ).join('');
-
-    document.getElementById('estimate-box').style.display = 'block';
-  }
-
-  // 功能勾选时更新报价
-  document.querySelectorAll('input[name="features"]').forEach(el => {
-    el.addEventListener('change', () => {
-      if (el.value === 'other_feature') {
-        document.getElementById('feature-other').style.display = el.checked ? 'block' : 'none';
-      }
-      updateEstimate();
-    });
-  });
-
   // 预算警示
   document.querySelectorAll('input[name="budget"]').forEach(el => {
     el.addEventListener('change', () => {
@@ -353,14 +247,6 @@
         el.value === '2万以内' ? 'block' : 'none';
       document.getElementById('budget-hint').style.display =
         el.value === '暂时不确定' ? 'block' : 'none';
-    });
-  });
-
-  // 行业其他
-  document.querySelectorAll('input[name="industry"]').forEach(el => {
-    el.addEventListener('change', () => {
-      document.getElementById('industry-other').style.display =
-        el.value === 'other_industry' && el.checked ? 'block' : 'none';
     });
   });
 
@@ -372,17 +258,12 @@
     btn.textContent = '提交中...';
 
     const form = e.target;
-    const estimateText = document.getElementById('estimate-range').textContent;
     const data = {
-      industry: form.querySelector('input[name="industry"]:checked')?.value || '',
-      industryOther: document.getElementById('industry-other').value,
-      platform: [...form.querySelectorAll('input[name="platform"]:checked')].map(el => el.value).join('、'),
-      features: [...form.querySelectorAll('input[name="features"]:checked')].map(el => el.value).join('、'),
-      featureOther: document.getElementById('feature-other').value,
-      reference: form.reference.value,
       budget: form.querySelector('input[name="budget"]:checked')?.value || '',
+      description: form.description.value,
+      reference: form.reference.value,
+      platform: [...form.querySelectorAll('input[name="platform"]:checked')].map(el => el.value).join('、'),
       timeline: form.querySelector('input[name="timeline"]:checked')?.value || '',
-      estimateRange: estimateText !== '—' ? estimateText : '未计算',
       remark: form.remark.value,
       name: form.name.value,
       wechat: form.wechat.value,
@@ -404,7 +285,7 @@
     } catch {
       alert('提交遇到问题，请稍后再试，或直接添加微信：9579249');
       btn.disabled = false;
-      btn.textContent = '提交需求，获取详细评估方案';
+      btn.textContent = '提交，获取免费评估方案';
     }
   });
 </script>
