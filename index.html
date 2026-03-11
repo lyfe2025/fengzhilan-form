@@ -18,6 +18,53 @@
     .header p { font-size: 14px; color: #aab; line-height: 1.8; }
     .container { max-width: 680px; margin: 30px auto; padding: 0 16px 60px; }
 
+    /* 知识引导页 */
+    #guide-page { }
+    #form-page { display: none; }
+
+    .guide-card {
+      background: #fff; border-radius: 12px;
+      padding: 24px 22px; margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .guide-card h3 {
+      font-size: 15px; font-weight: 700;
+      color: #1a1a2e; margin-bottom: 14px;
+      padding-bottom: 10px; border-bottom: 2px solid #f0f0f0;
+    }
+    .guide-item {
+      display: flex; gap: 12px; margin-bottom: 12px;
+      padding-bottom: 12px; border-bottom: 1px dashed #eee;
+    }
+    .guide-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .guide-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .guide-item-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .guide-item-desc { font-size: 13px; color: #666; line-height: 1.7; }
+    .guide-item-tag {
+      display: inline-block; font-size: 11px;
+      background: #f0f4ff; color: #2244aa;
+      padding: 2px 8px; border-radius: 20px; margin-top: 4px;
+    }
+
+    .notice-box {
+      background: #fff8f0; border: 1.5px solid #f0c080;
+      border-radius: 12px; padding: 20px 22px; margin-bottom: 14px;
+    }
+    .notice-box h3 { font-size: 14px; font-weight: 700; color: #b06000; margin-bottom: 10px; }
+    .notice-box ul { padding-left: 16px; }
+    .notice-box ul li { font-size: 13px; color: #7a4800; line-height: 2.1; }
+    .notice-box p { font-size: 12px; color: #999; margin-top: 10px; line-height: 1.6; }
+
+    .start-btn {
+      width: 100%; padding: 16px;
+      background: #1a1a2e; color: #fff; border: none;
+      border-radius: 10px; font-size: 16px; font-weight: 600;
+      cursor: pointer; transition: background 0.2s; margin-top: 4px;
+    }
+    .start-btn:hover { background: #2d2d50; }
+    .start-hint { font-size: 12px; color: #999; margin-top: 8px; text-align: center; }
+
+    /* 表单 */
     .card {
       background: #fff; border-radius: 12px;
       padding: 28px 24px; margin-bottom: 16px;
@@ -45,16 +92,13 @@
       font-family: inherit;
     }
     .text-input:focus { border-color: #1a1a2e; }
-    textarea.text-input { resize: vertical; min-height: 120px; line-height: 1.7; }
+    textarea.text-input { resize: vertical; min-height: 130px; line-height: 1.7; }
 
-    /* 语音提示 */
     .voice-tip {
       margin-top: 10px; padding: 10px 14px;
       background: #f0f7ff; border-radius: 8px;
       font-size: 12px; color: #557; line-height: 1.7;
     }
-
-    /* 预算警示 */
     .budget-warning {
       display: none; margin-top: 12px; padding: 12px 14px;
       background: #fff2f2; border: 1.5px solid #f5c0c0;
@@ -65,17 +109,6 @@
       background: #f5f6f8; border-radius: 8px;
       font-size: 13px; color: #888; line-height: 1.6;
     }
-
-    /* 合作声明 */
-    .notice-box {
-      background: #fff8f0; border: 1.5px solid #f0c080;
-      border-radius: 12px; padding: 20px 22px; margin-bottom: 16px;
-    }
-    .notice-box h3 { font-size: 14px; font-weight: 700; color: #b06000; margin-bottom: 10px; }
-    .notice-box ul { padding-left: 16px; }
-    .notice-box ul li { font-size: 13px; color: #7a4800; line-height: 2; }
-    .notice-box p { font-size: 12px; color: #999; margin-top: 10px; line-height: 1.6; }
-
     .field-group { display: flex; flex-direction: column; gap: 12px; }
     .field-label { font-size: 13px; color: #666; margin-bottom: 4px; }
 
@@ -109,119 +142,237 @@
 </div>
 
 <div class="container">
-  <form id="survey-form">
 
-    <!-- 合作声明 -->
+  <!-- 知识引导页 -->
+  <div id="guide-page">
+
+    <!-- 软件类型科普 -->
+    <div class="guide-card">
+      <h3>软件类型是什么意思？</h3>
+
+      <div class="guide-item">
+        <div class="guide-icon">📱</div>
+        <div>
+          <div class="guide-item-title">微信小程序</div>
+          <div class="guide-item-desc">在微信里直接使用，无需下载安装。覆盖面广，开发成本相对较低，适合大多数业务场景。</div>
+          <span class="guide-item-tag">推荐首选</span>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-icon">📲</div>
+        <div>
+          <div class="guide-item-title">App（手机应用）</div>
+          <div class="guide-item-desc">需要在应用商店下载安装。功能更强大，体验更流畅，但开发成本更高、周期更长，适合有一定用户规模的产品。</div>
+          <span class="guide-item-tag">成本较高</span>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-icon">🖥️</div>
+        <div>
+          <div class="guide-item-title">PC 后台管理系统</div>
+          <div class="guide-item-desc">在电脑浏览器上操作，用于管理订单、用户、数据等。通常配合小程序或 App 一起使用，是"幕后管理工具"。</div>
+          <span class="guide-item-tag">管理用途</span>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-icon">🌐</div>
+        <div>
+          <div class="guide-item-title">H5 网页</div>
+          <div class="guide-item-desc">手机浏览器打开的网页，也可以嵌入微信内打开。灵活轻便，适合活动页、展示页等轻量场景。</div>
+          <span class="guide-item-tag">轻量场景</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 费用与周期 -->
+    <div class="guide-card">
+      <h3>费用和周期大概是多少？</h3>
+
+      <div class="guide-item">
+        <div class="guide-icon">💰</div>
+        <div>
+          <div class="guide-item-title">定制开发 vs 模板</div>
+          <div class="guide-item-desc">市面上有几百元的模板，功能固定，改动有限。定制开发费用更高，但完全按照您的业务逻辑来做，长期更合适。</div>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-icon">📊</div>
+        <div>
+          <div class="guide-item-title">费用参考</div>
+          <div class="guide-item-desc">
+            简单小程序（展示+基础功能）：2 - 5 万<br>
+            中等项目（含支付、会员、后台）：5 - 15 万<br>
+            复杂系统（多端、复杂业务逻辑）：15 万以上
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-icon">⏱️</div>
+        <div>
+          <div class="guide-item-title">开发周期参考</div>
+          <div class="guide-item-desc">
+            简单项目：1 - 2 个月<br>
+            中等项目：2 - 4 个月<br>
+            复杂系统：4 个月以上
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 您需要知道的事 -->
+    <div class="guide-card">
+      <h3>在合作前，您需要了解这些</h3>
+
+      <div class="guide-item">
+        <div class="guide-icon">🔧</div>
+        <div>
+          <div class="guide-item-title">上线后还有持续费用</div>
+          <div class="guide-item-desc">软件上线后，每年需要支付服务器费用（通常几百到几千元不等）。功能升级和维护属于额外费用，请提前纳入预算。</div>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-icon">🤝</div>
+        <div>
+          <div class="guide-item-title">开发过程需要您配合</div>
+          <div class="guide-item-desc">开发过程中需要您提供业务资料、审核原型图并及时反馈意见。您的配合程度直接影响上线时间和最终效果。</div>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-icon">⚖️</div>
+        <div>
+          <div class="guide-item-title">代码版权归您所有</div>
+          <div class="guide-item-desc">定制开发完成后，代码的知识产权完全归您所有，我们不会将您的项目二次销售或用于其他用途。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 合作原则 -->
     <div class="notice-box">
-      <h3>在开始之前，请了解我们的合作原则</h3>
+      <h3>我们的合作原则</h3>
       <ul>
-        <li>我们只接受<strong>有明确预算的付费项目</strong></li>
+        <li>只接受<strong>有明确预算的付费项目</strong></li>
         <li>不接受以股份、分成替代开发费用的合作方式</li>
         <li>不接受"先做出来再谈钱"的模式</li>
       </ul>
-      <p>如果您有其他特殊合作想法，欢迎在表单最后补充说明，我们会根据实际情况评估。</p>
+      <p>如果您有其他特殊合作想法，欢迎在表单中补充说明，我们会根据实际情况评估。</p>
     </div>
 
-    <!-- Q1 预算（放最前，筛选诚意） -->
-    <div class="card">
-      <div class="question-num">第 1 题</div>
-      <div class="question-title">您的预算范围大概是？<span class="required">*</span></div>
-      <div class="question-sub">预算是我们评估能否合作的首要条件，请如实填写。</div>
-      <div class="options">
-        <label class="option"><input type="radio" name="budget" value="2万以内"><label>2 万以内</label></label>
-        <label class="option"><input type="radio" name="budget" value="2-5万"><label>2 - 5 万</label></label>
-        <label class="option"><input type="radio" name="budget" value="5-10万"><label>5 - 10 万</label></label>
-        <label class="option"><input type="radio" name="budget" value="10-30万"><label>10 - 30 万</label></label>
-        <label class="option"><input type="radio" name="budget" value="30万以上"><label>30 万以上</label></label>
-        <label class="option"><input type="radio" name="budget" value="暂时不确定"><label>暂时不确定</label></label>
-      </div>
-      <div class="budget-warning" id="budget-warning">
-        我们的项目起步价为 <strong>2 万元</strong>，低于此预算的项目暂时无法承接。<br>
-        如您预算有限但需求明确，欢迎在下方补充说明，我们会根据实际情况评估。
-      </div>
-      <div class="budget-hint" id="budget-hint">
-        填写大概预算范围有助于我们为您匹配合适的方案，如暂不确定可在最后补充说明。
-      </div>
-    </div>
+    <button class="start-btn" onclick="startForm()">我已了解，开始填写需求</button>
+    <p class="start-hint">填写约 3 分钟 · 1个工作日内联系您</p>
+  </div>
 
-    <!-- Q2 自由描述 -->
-    <div class="card">
-      <div class="question-num">第 2 题</div>
-      <div class="question-title">请用您自己的话，描述您的想法<span class="required">*</span></div>
-      <div class="question-sub">
-        您的业务是什么？遇到了什么问题？希望软件帮您解决什么？<br>
-        不需要懂技术，用日常语言描述即可，越具体越好。
-      </div>
-      <textarea class="text-input" name="description" placeholder="例如：我在做外卖生意，现在靠微信接单很乱，想做一个小程序让顾客自己下单，我能在后台看到订单、安排配送……" required></textarea>
-      <div class="voice-tip">
-        📱 手机用户：点击输入框后，点击键盘上的麦克风图标，即可直接语音输入，无需手打。
-      </div>
-    </div>
+  <!-- 表单页 -->
+  <div id="form-page">
+    <form id="survey-form">
 
-    <!-- Q3 参考产品 -->
-    <div class="card">
-      <div class="question-num">第 3 题</div>
-      <div class="question-title">有没有您喜欢的参考产品？（选填）</div>
-      <div class="question-sub">比如某个 App、小程序名称，或某个功能截图，有助于我们更快理解您的期望。</div>
-      <textarea class="text-input" name="reference" placeholder="例如：像美团外卖那样的下单流程，或者参考某某小程序的会员体系……"></textarea>
-    </div>
-
-    <!-- Q4 平台 -->
-    <div class="card">
-      <div class="question-num">第 4 题</div>
-      <div class="question-title">您希望做什么平台？（选填，不确定可跳过）</div>
-      <div class="options">
-        <label class="option"><input type="checkbox" name="platform" value="微信小程序"><label>微信小程序</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="iOS/Android App"><label>iOS / Android App</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="PC网站/管理后台"><label>PC 网站 / 管理后台</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="H5移动网页"><label>H5 移动网页</label></label>
-        <label class="option"><input type="checkbox" name="platform" value="不确定，需要建议"><label>不确定，需要您帮我建议</label></label>
-      </div>
-    </div>
-
-    <!-- Q5 时间 -->
-    <div class="card">
-      <div class="question-num">第 5 题</div>
-      <div class="question-title">期望什么时候上线？<span class="required">*</span></div>
-      <div class="options">
-        <label class="option"><input type="radio" name="timeline" value="1个月内"><label>1 个月内</label></label>
-        <label class="option"><input type="radio" name="timeline" value="1-3个月"><label>1 - 3 个月</label></label>
-        <label class="option"><input type="radio" name="timeline" value="3-6个月"><label>3 - 6 个月</label></label>
-        <label class="option"><input type="radio" name="timeline" value="时间灵活"><label>时间灵活，不着急</label></label>
-      </div>
-    </div>
-
-    <!-- Q6 补充 -->
-    <div class="card">
-      <div class="question-num">第 6 题</div>
-      <div class="question-title">其他补充（选填）</div>
-      <textarea class="text-input" name="remark" placeholder="如有特殊合作需求、顾虑，或任何想补充的内容，请在此说明"></textarea>
-    </div>
-
-    <!-- 联系方式 -->
-    <div class="card">
-      <div class="question-num">第 7 题</div>
-      <div class="question-title">您的联系方式<span class="required">*</span></div>
-      <div class="field-group">
-        <div>
-          <div class="field-label">姓名</div>
-          <input type="text" class="text-input" name="name" placeholder="您的称呼" required>
+      <!-- Q1 预算 -->
+      <div class="card">
+        <div class="question-num">第 1 题</div>
+        <div class="question-title">您的预算范围大概是？<span class="required">*</span></div>
+        <div class="question-sub">预算是我们评估能否合作的首要条件，请如实填写。</div>
+        <div class="options">
+          <label class="option"><input type="radio" name="budget" value="2万以内"><label>2 万以内</label></label>
+          <label class="option"><input type="radio" name="budget" value="2-5万"><label>2 - 5 万</label></label>
+          <label class="option"><input type="radio" name="budget" value="5-10万"><label>5 - 10 万</label></label>
+          <label class="option"><input type="radio" name="budget" value="10-30万"><label>10 - 30 万</label></label>
+          <label class="option"><input type="radio" name="budget" value="30万以上"><label>30 万以上</label></label>
+          <label class="option"><input type="radio" name="budget" value="暂时不确定"><label>暂时不确定</label></label>
         </div>
-        <div>
-          <div class="field-label">微信号</div>
-          <input type="text" class="text-input" name="wechat" placeholder="方便我们添加您" required>
+        <div class="budget-warning" id="budget-warning">
+          我们的项目起步价为 <strong>2 万元</strong>，低于此预算的项目暂时无法承接。<br>
+          如您预算有限但需求明确，欢迎在下方补充说明，我们会根据实际情况评估。
         </div>
-        <div>
-          <div class="field-label">手机号（选填）</div>
-          <input type="tel" class="text-input" name="phone" placeholder="备用联系方式">
+        <div class="budget-hint" id="budget-hint">
+          填写大概预算范围有助于我们为您匹配合适的方案，如暂不确定可在最后补充说明。
         </div>
       </div>
-    </div>
 
-    <button type="submit" class="submit-btn" id="submit-btn">提交，获取免费评估方案</button>
-    <p class="hint">提交后 1 个工作日内，我们将主动通过微信联系您</p>
+      <!-- Q2 自由描述 -->
+      <div class="card">
+        <div class="question-num">第 2 题</div>
+        <div class="question-title">请用您自己的话，描述您的想法<span class="required">*</span></div>
+        <div class="question-sub">
+          您的业务是什么？遇到了什么问题？希望软件帮您解决什么？<br>
+          不需要懂技术，用日常语言描述即可，越具体越好。
+        </div>
+        <textarea class="text-input" name="description" placeholder="例如：我在做外卖生意，现在靠微信接单很乱，想做一个小程序让顾客自己下单，我能在后台看到订单、安排配送……" required></textarea>
+        <div class="voice-tip">
+          📱 手机用户：点击输入框后，点击键盘上的麦克风图标，即可语音输入，无需手打。
+        </div>
+      </div>
 
-  </form>
+      <!-- Q3 参考产品 -->
+      <div class="card">
+        <div class="question-num">第 3 题</div>
+        <div class="question-title">有没有您喜欢的参考产品？（选填）</div>
+        <div class="question-sub">比如某个 App、小程序名称，有助于我们更快理解您的期望。</div>
+        <textarea class="text-input" name="reference" placeholder="例如：像美团外卖那样的下单流程，或者参考某某小程序的会员体系……"></textarea>
+      </div>
+
+      <!-- Q4 平台 -->
+      <div class="card">
+        <div class="question-num">第 4 题</div>
+        <div class="question-title">您希望做什么平台？（选填，不确定可跳过）</div>
+        <div class="options">
+          <label class="option"><input type="checkbox" name="platform" value="微信小程序"><label>微信小程序</label></label>
+          <label class="option"><input type="checkbox" name="platform" value="iOS/Android App"><label>iOS / Android App</label></label>
+          <label class="option"><input type="checkbox" name="platform" value="PC网站/管理后台"><label>PC 网站 / 管理后台</label></label>
+          <label class="option"><input type="checkbox" name="platform" value="H5移动网页"><label>H5 移动网页</label></label>
+          <label class="option"><input type="checkbox" name="platform" value="不确定，需要建议"><label>不确定，需要您帮我建议</label></label>
+        </div>
+      </div>
+
+      <!-- Q5 时间 -->
+      <div class="card">
+        <div class="question-num">第 5 题</div>
+        <div class="question-title">期望什么时候上线？<span class="required">*</span></div>
+        <div class="options">
+          <label class="option"><input type="radio" name="timeline" value="1个月内"><label>1 个月内</label></label>
+          <label class="option"><input type="radio" name="timeline" value="1-3个月"><label>1 - 3 个月</label></label>
+          <label class="option"><input type="radio" name="timeline" value="3-6个月"><label>3 - 6 个月</label></label>
+          <label class="option"><input type="radio" name="timeline" value="时间灵活"><label>时间灵活，不着急</label></label>
+        </div>
+      </div>
+
+      <!-- Q6 补充 -->
+      <div class="card">
+        <div class="question-num">第 6 题</div>
+        <div class="question-title">其他补充（选填）</div>
+        <textarea class="text-input" name="remark" placeholder="如有特殊合作需求、顾虑，或任何想补充的内容，请在此说明"></textarea>
+      </div>
+
+      <!-- 联系方式 -->
+      <div class="card">
+        <div class="question-num">第 7 题</div>
+        <div class="question-title">您的联系方式<span class="required">*</span></div>
+        <div class="field-group">
+          <div>
+            <div class="field-label">姓名</div>
+            <input type="text" class="text-input" name="name" placeholder="您的称呼" required>
+          </div>
+          <div>
+            <div class="field-label">微信号</div>
+            <input type="text" class="text-input" name="wechat" placeholder="方便我们添加您" required>
+          </div>
+          <div>
+            <div class="field-label">手机号（选填）</div>
+            <input type="tel" class="text-input" name="phone" placeholder="备用联系方式">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">提交，获取免费评估方案</button>
+      <p class="hint">提交后 1 个工作日内，我们将主动通过微信联系您</p>
+
+    </form>
+  </div>
 
   <!-- 成功页 -->
   <div id="success-page">
@@ -237,9 +388,16 @@
       <div class="wechat-id">9579249</div>
     </div>
   </div>
+
 </div>
 
 <script>
+  function startForm() {
+    document.getElementById('guide-page').style.display = 'none';
+    document.getElementById('form-page').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
   // 预算警示
   document.querySelectorAll('input[name="budget"]').forEach(el => {
     el.addEventListener('change', () => {
@@ -278,7 +436,7 @@
         body: JSON.stringify(data)
       });
       if (res.ok) {
-        document.getElementById('survey-form').style.display = 'none';
+        document.getElementById('form-page').style.display = 'none';
         document.getElementById('success-page').style.display = 'block';
         window.scrollTo(0, 0);
       } else { throw new Error(); }
