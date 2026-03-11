@@ -82,8 +82,10 @@
       border-radius: 8px; cursor: pointer; transition: all 0.15s;
     }
     .option:hover { border-color: #1a1a2e; background: #f9f9fb; }
-    .option input { accent-color: #1a1a2e; width: 16px; height: 16px; cursor: pointer; }
+    .option input { accent-color: #1a1a2e; width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; }
     .option span { cursor: pointer; font-size: 14px; flex: 1; }
+    .option.selected { border-color: #1a1a2e; background: #f0f4ff; }
+    .option.selected span { color: #1a1a2e; font-weight: 600; }
 
     .text-input {
       width: 100%; padding: 12px 14px;
@@ -397,6 +399,27 @@
     document.getElementById('form-page').style.display = 'block';
     window.scrollTo(0, 0);
   }
+
+  // 选中高亮
+  function bindOptionHighlight() {
+    document.querySelectorAll('.option input[type="radio"]').forEach(el => {
+      el.addEventListener('change', () => {
+        // 同组 radio 先全部取消高亮
+        document.querySelectorAll(`.option input[name="${el.name}"]`).forEach(r => {
+          r.closest('.option').classList.remove('selected');
+        });
+        if (el.checked) el.closest('.option').classList.add('selected');
+      });
+    });
+    document.querySelectorAll('.option input[type="checkbox"]').forEach(el => {
+      el.addEventListener('change', () => {
+        el.checked
+          ? el.closest('.option').classList.add('selected')
+          : el.closest('.option').classList.remove('selected');
+      });
+    });
+  }
+  bindOptionHighlight();
 
   // 预算警示
   document.querySelectorAll('input[name="budget"]').forEach(el => {
